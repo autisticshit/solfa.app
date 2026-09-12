@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solfa — Sheet Music to Solfège</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="staff-bg" aria-hidden="true"></div>
+
+<main class="page">
+
+  <header class="hero">
+    <h1 class="hero-title">Turn sheet music into <span class="ink">solfège</span>.</h1>
+    <p class="hero-sub">Photograph a line of music. Solfa reads the noteheads, finds the key, and sings back Do–Re–Mi.</p>
+  </header>
+
+  <section class="uploader" id="uploader">
+    <div class="uploader-inner" id="dropzone">
+      <input type="file" id="fileInput" accept=".png,.jpg,.jpeg" hidden />
+      <div class="upload-icon" id="uploadIcon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M22 6v22M22 6l-8 8M22 6l8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 30v4a4 4 0 0 0 4 4h20a4 4 0 0 0 4-4v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="upload-label" id="uploadLabel">Drop a photo of the score, or <button type="button" id="browseBtn" class="link-btn">browse a file</button></p>
+      <p class="upload-hint">PNG or JPG · one system or line works best</p>
+    </div>
+  </section>
+
+  <section class="status" id="status" hidden>
+    <div class="note-spinner" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <p id="statusText">Reading the staff…</p>
+  </section>
+
+  <section class="error" id="errorBox" hidden>
+    <p id="errorText"></p>
+    <button id="retryBtn" class="secondary-btn">Try another image</button>
+  </section>
+
+  <section class="results" id="results" hidden>
+    <div class="results-head">
+      <span class="key-pill" id="keyPill">Key</span>
+      <button id="newBtn" class="secondary-btn">Convert another</button>
+    </div>
+    <div class="staff-strip" id="staffStrip"></div>
+  </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
